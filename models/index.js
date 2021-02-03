@@ -1,12 +1,16 @@
 'use strict';
-
+// file system buid in Node method allows you to work with the file system on your computer
 var fs        = require('fs');
+
+path 
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
+
+
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);

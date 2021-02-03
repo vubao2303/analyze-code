@@ -58,6 +58,8 @@ description
 Install npm package 
 npm install express
 
+$ npm install express
+
 Required variables 
 ``` Javascript
 

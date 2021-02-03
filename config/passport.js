@@ -1,6 +1,10 @@
+// this is the required depencencies so we can use it
 var passport = require("passport");
+
+// one of th stratergy for passport, it is asking for username and password 
 var LocalStrategy = require("passport-local").Strategy;
 
+// this is pointing to the modles folder 
 var db = require("../models");
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
@@ -16,6 +20,7 @@ passport.use(new LocalStrategy(
         email: email
       }
     }).then(function(dbUser) {
+      // dbUser can be farley bacon if consistce. you may see it as date, or result, response, answer 
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {
@@ -29,6 +34,7 @@ passport.use(new LocalStrategy(
         });
       }
       // If none of the above, return the user
+      // always return done, a callback function that execute. again, what it is saying is just the db 
       return done(null, dbUser);
     });
   }
@@ -47,3 +53,10 @@ passport.deserializeUser(function(obj, cb) {
 
 // Exporting our configured passport
 module.exports = passport;
+// push this passort away to be use somewhere else 
+
+
+// send this array somewhere out, need to translate it to something to send 
+// seialize take your basic data structure and flaten it out into a string, by reading top to bottom. Now you have one big ass string. 
+// want to duplicate or extract 
+// deserialize take that string and construct it again, make back into an object 
