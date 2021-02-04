@@ -1,5 +1,6 @@
+// waiting for all function to activate so it can be manipulated safely 
 $(document).ready(function() {
-  // Getting references to our form and inputs
+  // Getting references to our form and inputs from html 
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
@@ -11,12 +12,13 @@ $(document).ready(function() {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
     };
-
+    // user validation
     if (!userData.email || !userData.password) {
       return;
     }
 
     // If we have an email and password we run the loginUser function and clear the form
+    // call the login function and give it the arguments of userData.email and userData.password
     loginUser(userData.email, userData.password);
     emailInput.val("");
     passwordInput.val("");
@@ -24,6 +26,7 @@ $(document).ready(function() {
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
   function loginUser(email, password) {
+    // Send data to the server using a HTTP POST request.
     $.post("/api/login", {
       email: email,
       password: password

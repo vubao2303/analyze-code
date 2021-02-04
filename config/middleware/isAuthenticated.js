@@ -13,6 +13,7 @@ module.exports = function(req, res, next) {
   // If the user isn't logged in, redirect them to the login page
   return res.redirect("/");
 };
+
 // Middleware fucntions are function that have access to the request object, response object, and the next function 
 // middleware can execute any code, make cahnges to req and res, end the cycle of the function, and call in the next middleware in the stack 
 

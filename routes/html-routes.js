@@ -4,13 +4,19 @@ var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+
+// export it out to server.js 
 module.exports = function(app) {
 
+
+// .get is a return method serving up whatever the resuqest is 
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
+// redirect return an object, in this case memeber object witht he key value paor of passowrk and emali 
       res.redirect("/members");
     }
+    // if not user sent them to the signup page 
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
