@@ -37,6 +37,7 @@ $(document).ready(function() {
 
   function handleLoginErr(err) {
     $("#alert .msg").text(err.responseJSON);
+    // time base function, 0.5 seconds 
     $("#alert").fadeIn(500);
   }
 });

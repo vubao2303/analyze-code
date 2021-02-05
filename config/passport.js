@@ -20,6 +20,7 @@ passport.use(new LocalStrategy(
         email: email
       }
     }).then(function(dbUser) {
+      // .then function make sure that the function run asynchously 
       // dbUser can be farley bacon if consistce. you may see it as date, or result, response, answer 
       // If there's no user with the given email
       if (!dbUser) {

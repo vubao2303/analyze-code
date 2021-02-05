@@ -1,12 +1,14 @@
 # analyze-code
 
-description 
+This application provides a sign up form, a sign in form using passport and bcrypt to track user uniqueness and protect user input. 
 
 
 ## Google Docs  
 
-[Google Docs]()  
+[Google Docs](https://docs.google.com/document/d/11o0NUKUAqbb803xnsruhRUmvnuE8M8fghpOQKg5eAcg/edit?usp=sharing)  
 
+# Page Structure 
+[Page Structure]()
 
 # Table of Contents 
 [Tittle](#analyze-code)
@@ -27,28 +29,32 @@ description
 
 
 ## Description of Page Building 
-* In one file
+* In server.js file 
    <ul> 
-  <li> 
-  <li> 
-  <li> 
+  <li> require all the nmp packages
+  <li> Setting up port and requiring models for syncing
+  <li> Creating express app and configuring middleware needed for authentication.
+  <li> requiring routes from the routes folder
+  <li> Syncing our database and logging a message to the user upon success
+  <li> listen to port to kicks up the whole thing and starts the server
   </li>
   </ul>
 
-* In another 
+* In js folder
   <ul> 
-  <li> 
-  <li> 
-  <li> 
+  <li> get document by id and class 
+  <li> validate user data
+  <li>  post to our "api/login" route
+  <li> html route serves up html interface
   </li>
   </ul>
 
 
-* In another file 
+* In config folder
   <ul> 
-  <li> 
-  <li> 
-  <li> 
+  <li> Use Passport to authenticate requests.
+  <li> Appply Passport-local strategy for authenticating with a username and password.
+  <li>  serialize and deserialize the user input
   </li>
    </ul>
 
@@ -75,9 +81,14 @@ Set routes to handle when user "visit" the page
 
 ```
 
-do this because 
+Serialize takes your basic data structure and flatten it out into a string, by reading top to bottom. Now you have one big ass string. want to duplicate or extract, deserialize take that string and construct it again, make back into an object
 ``` Javascript 
-
+passport.serializeUser(function(user, cb) {
+ cb(null, user);
+});
+passport.deserializeUser(function(obj, cb) {
+ cb(null, obj);}); 
+module.exports = passport;
 ```
 
 ## Technologies Used
@@ -102,3 +113,50 @@ do this because
 ## License
 
 © 2021 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+
+|Config 
+    |
+    Middleware 
+          |isAuthenticate.js
+    |
+    config.json 
+    |
+    passport.js
+Models
+    | 
+    index.js      
+    |
+    user.js
+public
+    |
+    js--
+        |
+        login.js
+        |
+        memebers.js
+        |
+        signup.js
+    |
+    stylesheets
+    |   |
+    |    style.css
+    |
+    login.html
+    |
+    memebers.html
+    |
+    signup.html
+    |
+routes    
+    |
+    api-routes.js
+    |
+    html-routes.js
+    |
+|
+package-lock.json
+|
+package.json
+|
+server.js

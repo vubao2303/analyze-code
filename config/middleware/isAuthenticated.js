@@ -26,3 +26,5 @@ module.exports = function(req, res, next) {
 
 // for example, if you save your password in a website, then when you open the website it went straight to your page
 // but when you are not logged in, it will just show you the main page. 
+
+// this will be export to HTML ROUTE in routes folder 
